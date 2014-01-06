@@ -26,7 +26,12 @@ Ext.define('ExtReddit.view.Main', {
             xtype: 'panel',
             autoScroll:true,
             buttons: [{
-                text: 'Next Page'
+                text: 'Previous',
+                itemId: 'previousPage',
+                disabled:true
+            },{
+                text: 'Next',
+                itemId:'nextPage'
             }],
             items:[{
                 xtype:'mainPanel'

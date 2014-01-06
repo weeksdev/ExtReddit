@@ -22,6 +22,8 @@
 		callbackKey:'jsonp',
 		url: 'http://www.reddit.com/.json',
 		extraParams: {
+		    'count': 25,
+            'after':null
 		},
 		headers: { 'Content-type': 'text/json;  charset=utf-8', 'Accepts': 'text/json' },
 		reader: {
