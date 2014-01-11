@@ -22,20 +22,9 @@ Ext.define('ExtReddit.view.Main', {
         region: 'center',
         xtype: 'tabpanel',
         items:[{
-            title: 'Hot',
-            xtype: 'panel',
-            autoScroll:true,
-            buttons: [{
-                text: 'Previous',
-                itemId: 'previousPage',
-                disabled:true
-            },{
-                text: 'Next',
-                itemId:'nextPage'
-            }],
-            items:[{
-                xtype:'mainPanel'
-            }]
+            xtype: 'mainPanel',
+            title:'Hot',
+            autoScroll: true
         }]
     }
     //{
