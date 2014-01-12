@@ -2,7 +2,7 @@
 	extend: 'Ext.data.Model',
 	fields: [
 		{ name:'id',mapping: 'data.id', type: 'auto' },
-        { name: 'domain', mapping: 'data.domain', type: 'auto' },
+                { name: 'domain', mapping: 'data.domain', type: 'auto' },
 		{ name: 'subreddit', mapping: 'data.subreddit', type: 'auto' },
 		{ name: 'author', mapping: 'data.author', type: 'auto' },
 		{ name: 'over_18', mapping: 'data.over_18', type: 'auto' },
@@ -23,7 +23,7 @@
 		url: 'http://www.reddit.com/.json',
 		extraParams: {
 		    'count': 25,
-            'after':null
+                    'after':null
 		},
 		headers: { 'Content-type': 'text/json;  charset=utf-8', 'Accepts': 'text/json' },
 		reader: {
