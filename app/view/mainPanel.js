@@ -15,7 +15,12 @@
         '<tr>',
         '<tpl if="this.isImage(thumbnail)" style:"display:inline;">',
         '<td rowspan="3">',
-        "<a href='{url}' target='_blank'><img src=" + '{thumbnail}' + " /></a>",
+        "<a href='{url}' target='_blank'><img class='imageFormat' src=" + '{thumbnail}' + " /></a>",
+        '</td>',
+        '</tpl>',
+        '<tpl if="this.isImage(thumbnail)==false" style:"display:inline;">',
+        '<td rowspan="3">',
+        "<img class='imageFormat' src='images/EmptyShot.png' />",
         '</td>',
         '</tpl>',
         '<td><a name={id}></a><a href="{url}" target="_blank"><div class="itemTitle">{title}</div></a></td>',
@@ -24,11 +29,12 @@
         '<td><div class="itemBy">({domain}) By: {author} </div></td>',
         '</tr>',
         '<tr>',
-        '<td><div class="itemStats"><div class="itemStatsSmaller">{ups}</div>:<div class="itemStatsBigger">{score}</div>:<div class="itemStatsSmaller">{downs}</div></div></td>',
+        '<td><div class="itemStats"><div class="itemStatsSmaller">{ups}</div>:<div class="itemStatsBigger">{score}</div>:<div class="itemStatsSmaller">{downs}</div></div>View Comments</td>',
         '</tr>',
         '</table>',
         '</div>',
         '</tpl>',
+        '<input type="button" value="Show More"/>',
         {
             isImage: function (thumbnail) {
                 var url = '';

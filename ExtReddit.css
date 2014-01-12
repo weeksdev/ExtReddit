@@ -1,10 +1,15 @@
 ﻿body {
 }
+a:link {
+    font-style:normal !important;
+    color:darkgray !important;
+    text-decoration:none !important;
+    
+}
 .itemFormat {
     margin:5px;
-    border:solid;
-    border-color:blue;
-    border-width:3px;
+    /*border-color:blue;*/
+    /*border-width:3px;*/
     padding:5px 5px 5px;
 }
 
@@ -12,18 +17,26 @@
     border-color:orange;
 }
 
+.imageFormat { 
+    filter: grayscale(100%) !important; 
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
 .itemTitle {
     display:inline;
     font-size:20px;
-    color:darkblue;
+    color:black;
 }
 .itemBy {
     /*display:inline;*/
     font-size:15px;
 }
 .selectedItemFormat {
-    border-color:orange;
-    border-width:5px;
+    border:solid;
+    border-color:lightgray;
+    border-width:3px;
 }
 .itemStatsSmaller {
     display:inline;
