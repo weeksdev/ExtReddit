@@ -15,7 +15,7 @@
 		{ name: 'url', mapping: 'data.url', type: 'auto' },
 		{ name: 'title', mapping: 'data.title', type: 'auto' },
 		{ name: 'num_comments', mapping: 'data.num_comments', type: 'auto' },
-        { name: 'score', mapping: 'data.score', type: 'auto' }
+                { name: 'score', mapping: 'data.score', type: 'auto' }
 	],
 	proxy: {
 		type: 'jsonp',
