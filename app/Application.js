@@ -4,6 +4,7 @@ Ext.define('ExtReddit.Application', {
     extend: 'Ext.app.Application',
 
     views: [
+        'SidePanel',
         'mainPanel'
     ],
 
@@ -12,6 +13,7 @@ Ext.define('ExtReddit.Application', {
     ],
 
     stores: [
+        'SubredditSearchs',
         'mains'
     ]
 });

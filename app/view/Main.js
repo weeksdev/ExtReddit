@@ -13,19 +13,20 @@ Ext.define('ExtReddit.view.Main', {
 
     items: [{
         region: 'west',
-        xtype: 'panel',
-        title: 'west',
-        width: 150,
+        xtype: 'SidePanel',
+        bodyPadding:5,
+        width: 300,
         collapsible: true,
-        collapsed:true
+        collapsed:false
     },{
-        region: 'center',
-        xtype: 'tabpanel',
-        items:[{
+        //region: 'center',
+        //xtype: 'tabpanel',
+        //items:[{
+            style:'background-color:white !important;',
             xtype: 'mainPanel',
             title:'Hot',
             autoScroll: true
-        }]
+        //}]
     }
     //{
     //    region: 'east',

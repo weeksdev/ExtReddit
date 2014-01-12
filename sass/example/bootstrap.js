@@ -834,6 +834,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "ExtReddit.model.main": [],
   "ExtReddit.store.mains": [],
   "ExtReddit.view.Main": [],
+  "ExtReddit.view.SidePanel": [],
   "ExtReddit.view.Viewport": [],
   "ExtReddit.view.mainPanel": [],
   "ExtThemeNeptune.Component": [],
@@ -1845,6 +1846,9 @@ Ext.ClassManager.addNameAliasMappings({
   "ExtReddit.store.mains": [],
   "ExtReddit.view.Main": [
     "widget.app-main"
+  ],
+  "ExtReddit.view.SidePanel": [
+    "widget.SidePanel"
   ],
   "ExtReddit.view.Viewport": [],
   "ExtReddit.view.mainPanel": [

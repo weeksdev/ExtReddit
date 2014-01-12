@@ -20,8 +20,21 @@ Ext.define('ExtReddit.controller.Main', {
             },
             '#previousPage': {
                 click:this.navigation
+            },
+            '#SearchButton': {
+                click:this.Search
             }
         });
+    },
+    Search: function (btn) {
+        var param = btn.up('panel').down('#SearchField').getValue();
+        var s = Ext.getStore('mains');
+        s.proxy.url = 'http://www.reddit.com/search.json?';
+        s.proxy.extraParams = {
+            count: 25,
+            q:param
+        };
+        s.load();
     },
     itemKeyPressed: function (dv, record, item, index, e, eOpts) {
 
