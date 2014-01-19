@@ -15,5 +15,7 @@
             itemId: 'SearchButton',
             margin:'0 10 0'
         }]
+    }, {
+        xtype:'SectionGrid'
     }]
 });

@@ -44,5 +44,5 @@
         }
     ),
     itemSelector: 'div.itemFormat',
-    selectedItemCls:'selectedItemFormat'
+    selectedItemCls: 'selectedItemFormat'
 });
