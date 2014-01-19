@@ -22,7 +22,44 @@ public class reddit : System.Web.Services.WebService {
         //Uncomment the following line if using designed components 
         //InitializeComponent(); 
     }
-
+    public class data
+    {
+        public string subreddit_id { get; set; }
+        public string banned_by { get; set; }
+        public string subreddit { get; set; }
+        public string likes { get; set; }
+        public string saved { get; set; }
+        public string id { get; set; }
+        public string gilded { get; set; }
+        public string author { get; set; }
+        public string parent_id { get; set; }
+        public string approved_by { get; set; }
+        public string body { get; set; }
+        public string downs { get; set; }
+        public string ups { get; set; }
+        public string body_html { get; set; }
+        public string link_id { get; set; }
+        public string name { get; set; }
+        public string created { get; set; }
+        public replies replies { get; set; }
+    }
+    public class comment
+    {
+        public string kind { get; set; }
+        public data data { get; set; }
+        public bool leaf { get; set; }
+    }
+    public class replynesting
+    {
+        public string kind { get; set; }
+        public List<comment> children { get; set; }
+    }
+    public class replies
+    {
+        public string kind { get; set; }
+        public replynesting data { get; set; }
+    }
+    
     [WebMethod]
     public void parse(string url)
     {
@@ -49,9 +86,9 @@ public class reddit : System.Web.Services.WebService {
         response.Close();
         dynamic returnObj = Newtonsoft.Json.JsonConvert.DeserializeObject(responseFromServer);
         
-        var comments = returnObj[1].data.children;
-        //var item1 = comments[0];
-        HttpContext.Current.Response.Write(responseFromServer);
+        var comments = Newtonsoft.Json.JsonConvert.DeserializeObject<List<comment>>(Newtonsoft.Json.JsonConvert.SerializeObject(returnObj[1].data.children));
+        
+        HttpContext.Current.Response.Write(Newtonsoft.Json.JsonConvert.SerializeObject(comments));
     }
     
 }
