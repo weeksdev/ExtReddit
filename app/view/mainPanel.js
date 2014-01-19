@@ -20,7 +20,7 @@
         '</tpl>',
         '<tpl if="this.isImage(thumbnail)==false" style:"display:inline;">',
         '<td rowspan="3">',
-        "<img class='imageFormat' src='images/EmptyShot.png' />",
+        "<img class='imageFormat' src='images/feellikeasir.gif' height=75 />",
         '</td>',
         '</tpl>',
         '<td><a name={id}></a><a href="{url}" target="_blank"><div class="itemTitle">{title}</div></a></td>',
