@@ -1,6 +1,7 @@
 Ext.define('ExtReddit.controller.Main', {
     extend: 'Ext.app.Controller',
     views: ['mainPanel'],
+    stores:['mains'],
     getMainPanel: function () {
         return Ext.ComponentQuery.query('mainPanel')[0];
     },
@@ -23,8 +24,25 @@ Ext.define('ExtReddit.controller.Main', {
             },
             '#SearchButton': {
                 click:this.Search
+            },
+            'SectionView': {
+                selectionchange:this.sectionSelectionChanged
             }
         });
+    },
+    sectionSelectionChanged: function (dv, selected, eOpts) {
+        //if selection is made then take the link from the selection and apply to the main store.
+        if (selected[0] != null) {
+            var section = selected[0];
+            var link = section.get('link');
+            var store = Ext.getStore('mains');
+            store.proxy.url = link;
+            store.proxy.extraParams = {
+                'count': 25,
+                'after': null
+            };
+            store.load();
+        }
     },
     Search: function (btn) {
         var param = btn.up('panel').down('#SearchField').getValue();
@@ -35,6 +53,8 @@ Ext.define('ExtReddit.controller.Main', {
             q:param
         };
         s.load();
+        //Clear the current selection of sections if there is one.
+        btn.up('viewport').down('SectionView').getSelectionModel().deselectAll();
     },
     itemKeyPressed: function (dv, record, item, index, e, eOpts) {
 

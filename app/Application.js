@@ -4,6 +4,7 @@ Ext.define('ExtReddit.Application', {
     extend: 'Ext.app.Application',
 
     views: [
+        'SectionView',
         'SectionGrid',
         'SidePanel',
         'mainPanel'

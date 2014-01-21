@@ -3,8 +3,12 @@
     fields: ['section', 'link'],
     data: {
         'items': [
-            { 'section': 'New', 'link': 'New Stuff' },
-            { 'section': 'Example', 'link': 'Right Here' },
+            { 'section': 'Main', 'link': 'http://www.reddit.com/.json' },
+            { 'section': 'New', 'link': 'http://www.reddit.com/new/.json' },
+            { 'section': 'Rising', 'link': 'http://www.reddit.com/rising/.json' },
+            { 'section': 'Controversial', 'link': 'http://www.reddit.com/controversial/.json' },
+            { 'section': 'Top', 'link': 'http://www.reddit.com/top/.json' },
+            { 'section': 'Gilded', 'link': 'http://www.reddit.com/gilded/.json' }
         ]
     },
     proxy: {

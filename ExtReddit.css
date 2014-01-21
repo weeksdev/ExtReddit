@@ -48,3 +48,17 @@ a:link {
     font-weight:bolder;
     font-size:18px;
 }
+.SectionItem {
+    margin:5px 0px 0px;
+    padding:2px;
+    border:1px;
+    border-style:solid;
+    border-color:gray;
+    cursor:pointer;
+}
+.SectionItem-over {
+    border-color:black;
+}
+.SectionItem-selected {
+    border-color:orange;
+}
