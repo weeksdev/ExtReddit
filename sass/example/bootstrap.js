@@ -831,9 +831,14 @@ Ext.ClassManager.addNameAlternateMappings({
   "ExtReddit.Application": [],
   "ExtReddit.controller.Main": [],
   "ExtReddit.model.New": [],
+  "ExtReddit.model.SubredditSearch": [],
   "ExtReddit.model.main": [],
+  "ExtReddit.store.SectionGrids": [],
+  "ExtReddit.store.SubredditSearchs": [],
   "ExtReddit.store.mains": [],
   "ExtReddit.view.Main": [],
+  "ExtReddit.view.SectionGrid": [],
+  "ExtReddit.view.SectionView": [],
   "ExtReddit.view.SidePanel": [],
   "ExtReddit.view.Viewport": [],
   "ExtReddit.view.mainPanel": [],
@@ -1842,10 +1847,19 @@ Ext.ClassManager.addNameAliasMappings({
   "ExtReddit.Application": [],
   "ExtReddit.controller.Main": [],
   "ExtReddit.model.New": [],
+  "ExtReddit.model.SubredditSearch": [],
   "ExtReddit.model.main": [],
+  "ExtReddit.store.SectionGrids": [],
+  "ExtReddit.store.SubredditSearchs": [],
   "ExtReddit.store.mains": [],
   "ExtReddit.view.Main": [
     "widget.app-main"
+  ],
+  "ExtReddit.view.SectionGrid": [
+    "widget.SectionGrid"
+  ],
+  "ExtReddit.view.SectionView": [
+    "widget.SectionView"
   ],
   "ExtReddit.view.SidePanel": [
     "widget.SidePanel"
