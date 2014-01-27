@@ -34,7 +34,6 @@
         '</table>',
         '</div>',
         '</tpl>',
-        '<input type="button" value="Show More"/>',
         {
             isImage: function (thumbnail) {
                 var url = '';
