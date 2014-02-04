@@ -6,7 +6,10 @@ Ext.define('ExtReddit.controller.Main', {
         return Ext.ComponentQuery.query('mainPanel')[0];
     },
     init: function () {
-        Ext.getStore('mains').on('load', this.mainStoreLoaded, this);  
+        Ext.getStore('mains').on('load', this.mainStoreLoaded, this);
+
+        
+
         this.control({
             'mainPanel': {
                 select: this.itemSelected,
@@ -27,6 +30,66 @@ Ext.define('ExtReddit.controller.Main', {
             },
             'SectionView': {
                 selectionchange:this.sectionSelectionChanged
+            },
+            'mainPanel': {
+                render:this.mainPanelRendered
+            }
+        });
+    },
+    mainPanelRendered: function () {
+        var p = Ext.ComponentQuery.query('mainPanel')[0];
+        var s = Ext.getStore('mains');
+        p.getTargetEl().on('scroll', function (e, t) {
+            var height = p.getTargetEl().getHeight();
+            if (height + t.scrollTop >= t.scrollHeight) { //Fire method to load more data to the store.
+                p.setLoading(true);
+                Ext.data.JsonP.request({
+                    callbackKey:'jsonp',
+                    url: s.proxy.url,
+                    params: {
+                        'count': 25,
+                        'after': p.after
+                    },
+                    headers: { 'Content-type': 'text/json;  charset=utf-8', 'Accepts': 'text/json' },
+                    reader: {
+                        type: 'json',
+                        root: 'data.children',
+                        successProperty: 'success'
+                    },
+                    success: function (response) {
+                        p.after = response.data.after;
+                        Ext.each(response.data.children, function (article) {
+                            var data = article.data;
+                            try{
+                                s.add({
+                                    id: data.id,
+                                    domain: data.domain,
+                                    subreddit: data.subreddit,
+                                    author: data.author,
+                                    over_18: data.over_18,
+                                    thumbnail: data.thumbnail,
+                                    subreddit_id: data.subreddit_id,
+                                    downs: data.downs,
+                                    ups: data.ups,
+                                    permalink: data.permalink,
+                                    name: data.name,
+                                    url: data.url,
+                                    title: data.title,
+                                    num_comments: data.num_comments,
+                                    score: data.score
+                                });
+                            } catch (ex) {
+                                //do nothing the item already existed
+                            }
+                            //s.add(item);
+                            //newItems[i] = item;
+                            //i++;
+                        });
+                        p.setLoading(false);
+                        //p.after = p.response.data.after;
+                    }
+                });
+                   
             }
         });
     },
@@ -36,6 +99,7 @@ Ext.define('ExtReddit.controller.Main', {
             var section = selected[0];
             var link = section.get('link');
             var store = Ext.getStore('mains');
+            store.removeAll();
             store.proxy.url = link;
             store.proxy.extraParams = {
                 'count': 25,

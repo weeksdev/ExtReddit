@@ -24,11 +24,5 @@ Ext.define('ExtReddit.view.Main', {
         title: 'Hot',
         autoScroll: true,
         border:0
-    }, {
-        xtype: 'NavigationPanel',
-        bodyPadding: 5,
-        border:0,
-        height: 40,
-        region:'south'
     }]
 });
