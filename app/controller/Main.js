@@ -98,13 +98,14 @@ Ext.define('ExtReddit.controller.Main', {
         if (selected[0] != null) {
             var section = selected[0];
             var link = section.get('link');
-            var store = Ext.getStore('mains');
-            store.removeAll();
+            var store = Ext.create('ExtReddit.store.mains');
+            //store.removeAll();
             store.proxy.url = link;
             store.proxy.extraParams = {
                 'count': 25,
                 'after': null
             };
+            Ext.ComponentQuery.query('mainPanel')[0].store = store;
             store.load();
         }
     },

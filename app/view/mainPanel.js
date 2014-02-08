@@ -20,7 +20,7 @@
         '</tpl>',
         '<tpl if="this.isImage(thumbnail)==false" style:"display:inline;">',
         '<td rowspan="3">',
-        "<img class='imageFormat' src='images/feellikeasir.gif' height=75 />",
+        //"<img class='imageFormat' src='images/feellikeasir.gif' height=75 />",
         '</td>',
         '</tpl>',
         '<td><a name={id}></a><a href="{url}" target="_blank"><div class="itemTitle">{title}</div></a></td>',
@@ -32,6 +32,9 @@
         '<td><div class="itemStats"><div class="itemStatsSmaller">{ups}</div>:<div class="itemStatsBigger">{score}</div>:<div class="itemStatsSmaller">{downs}</div></div>View Comments</td>',
         '</tr>',
         '</table>',
+        '<tpl if="this.canIShowHere(url)==true">',
+        '<img src="{url}" height="500"/>',
+        '</tpl>',
         '</div>',
         '</tpl>',
         {
@@ -39,6 +42,16 @@
                 var url = '';
                 url = url + thumbnail;
                 return (url.indexOf("http")>=0)
+            },
+            canIShowHere: function (url) {
+                var index = 0;
+
+                index = url.indexOf('.jpg');
+
+                if (index == -1)
+                    index = url.indexOf('.png');
+
+                return index > 0;
             }
         }
     ),
