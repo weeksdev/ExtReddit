@@ -837,6 +837,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "ExtReddit.store.SubredditSearchs": [],
   "ExtReddit.store.mains": [],
   "ExtReddit.view.Main": [],
+  "ExtReddit.view.NavigationPanel": [],
   "ExtReddit.view.SectionGrid": [],
   "ExtReddit.view.SectionView": [],
   "ExtReddit.view.SidePanel": [],
@@ -1854,6 +1855,9 @@ Ext.ClassManager.addNameAliasMappings({
   "ExtReddit.store.mains": [],
   "ExtReddit.view.Main": [
     "widget.app-main"
+  ],
+  "ExtReddit.view.NavigationPanel": [
+    "widget.NavigationPanel"
   ],
   "ExtReddit.view.SectionGrid": [
     "widget.SectionGrid"

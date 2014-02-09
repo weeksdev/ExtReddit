@@ -15,7 +15,24 @@
 		{ name: 'url', mapping: 'data.url', type: 'auto' },
 		{ name: 'title', mapping: 'data.title', type: 'auto' },
 		{ name: 'num_comments', mapping: 'data.num_comments', type: 'auto' },
-                { name: 'score', mapping: 'data.score', type: 'auto' }
+        { name: 'score', mapping: 'data.score', type: 'auto' },
+        { name: 'provider_name', mapping: 'data.media.oembed.provider_name', type: 'auto' },
+        {
+            name: 'youtube_id', mapping: 'data.media.oembed.url', convert: function (value) {
+                if (value != null && value != '') {
+                    var video_id = value.split('v=')[1];
+                    var ampersandPosition = video_id.indexOf('&');
+                    if (ampersandPosition != -1) {
+                        video_id = video_id.substring(0, ampersandPosition);
+                    }
+                    console.log(video_id);
+                    return video_id;
+                }
+                else {
+                    return ''
+                }
+            }
+        }
 	],
 	proxy: {
 		type: 'jsonp',

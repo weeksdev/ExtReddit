@@ -7,9 +7,6 @@ Ext.define('ExtReddit.controller.Main', {
     },
     init: function () {
         Ext.getStore('mains').on('load', this.mainStoreLoaded, this);
-
-        
-
         this.control({
             'mainPanel': {
                 select: this.itemSelected,
@@ -38,7 +35,7 @@ Ext.define('ExtReddit.controller.Main', {
     },
     mainPanelRendered: function () {
         var p = Ext.ComponentQuery.query('mainPanel')[0];
-        var s = Ext.getStore('mains');
+        var s = p.getStore();
         p.getTargetEl().on('scroll', function (e, t) {
             var height = p.getTargetEl().getHeight();
             if (height + t.scrollTop >= t.scrollHeight) { //Fire method to load more data to the store.
@@ -98,6 +95,7 @@ Ext.define('ExtReddit.controller.Main', {
         if (selected[0] != null) {
             var section = selected[0];
             var link = section.get('link');
+            //store = Ext.getStore('mains');
             var store = Ext.create('ExtReddit.store.mains');
             //store.removeAll();
             store.proxy.url = link;
@@ -105,8 +103,14 @@ Ext.define('ExtReddit.controller.Main', {
                 'count': 25,
                 'after': null
             };
-            Ext.ComponentQuery.query('mainPanel')[0].store = store;
-            store.load();
+            
+            store.load({
+                callback: function () {
+                    console.log('getting here');
+                    var panel = Ext.ComponentQuery.query('mainPanel')[0];
+                    panel.bindStore(store);
+                }
+            });
         }
     },
     Search: function (btn) {

@@ -29,11 +29,15 @@
         '<td><div class="itemBy">({domain}) By: {author} </div></td>',
         '</tr>',
         '<tr>',
-        '<td><div class="itemStats"><div class="itemStatsSmaller">{ups}</div>:<div class="itemStatsBigger">{score}</div>:<div class="itemStatsSmaller">{downs}</div></div>View Comments</td>',
+        '<td><div class="itemStats"><div class="itemStatsSmaller">{ups}</div>:<div class="itemStatsBigger">{score}</div>:<div class="itemStatsSmaller">{downs}</div>',
+        '</div><a href="http://www.reddit.com/{permalink}" target="_blank">View Comments</a></td>',
         '</tr>',
         '</table>',
         '<tpl if="this.canIShowHere(url)==true">',
         '<img src="{url}" height="500"/>',
+        '</tpl>',
+        '<tpl if="this.isYouTubed(youtube_id)==true">',
+        '<iframe class="youtube-player" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/{youtube_id}" allowfullscreen frameborder="0"></iframe>',
         '</tpl>',
         '</div>',
         '</tpl>',
@@ -52,6 +56,9 @@
                     index = url.indexOf('.png');
 
                 return index > 0;
+            },
+            isYouTubed: function (id) {
+                return (id != null && id != '');
             }
         }
     ),
